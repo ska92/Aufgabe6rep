@@ -1,3 +1,7 @@
+package lexer;
+
+import java.io.BufferedReader;
+import java.util.ArrayList;
 
 public class Lexer {
 	
@@ -9,7 +13,7 @@ public class Lexer {
 		
 		
 		
-		return null;
+		return tokenList;
 	}
 
 }

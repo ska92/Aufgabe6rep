@@ -1,3 +1,4 @@
+package lexer;
 
 public abstract class Token {
 	private String regex;
