@@ -3,6 +3,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
@@ -20,25 +21,31 @@ public class Gui extends JFrame implements ActionListener {
 	
 	private JButton check;
 	private JEditorPane ep;
-	private JLabel sp;
+	private JEditorPane sp;
+	
 
 	public Gui() {
 		
+		
 		Dimension dim = new Dimension(200,200);
 
-		JEditorPane ep = new JEditorPane();
+		ep = new JEditorPane();
 		JScrollPane esp = new JScrollPane(ep);
-		JLabel sp = new JLabel();
-		JButton check = new JButton("Check");
+		sp = new JEditorPane();
+		check = new JButton("Check");
 		JPanel panel1 = new JPanel();
 		JPanel panel2 = new JPanel();
+		JFrame f = new JFrame("Lexer");
+		
 		
 		sp.setText("LOOOOOOOOL");
-		sp.setForeground(Color.white);
+		sp.setForeground(Color.black);
 		sp.setBackground(Color.white);
 		ep.setMaximumSize(dim);
 		sp.setSize(200, 200);
+		
 		check.setSize(50, 50);
+		check.addActionListener(this);
 		esp.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		esp.setPreferredSize(new Dimension(250, 145));
 		esp.setMinimumSize(new Dimension(10, 10));
@@ -52,21 +59,23 @@ public class Gui extends JFrame implements ActionListener {
 		
 		
 
-		JFrame f = new JFrame("Lexer");
+		
 		f.setLayout(new GridLayout(2,1));
 		f.add(panel1);
 		f.add(panel2);
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		f.setSize(1000,1000);
+		
+		f.setSize(600, 600);
 		f.setVisible(true);
+		
 	}
 	
 	public void actionPerformed(ActionEvent ae){
 		
-		if(ae.getSource() == this.check){
+		if(ae.getSource() == check){
 			StringReader sr = new StringReader(ep.getText());
 			BufferedReader br = new BufferedReader(sr);
-			sp.setText("Test");
+			sp.setText("lol");
 		}
 	}
 	
@@ -76,5 +85,6 @@ public class Gui extends JFrame implements ActionListener {
 
 	public static void main(String[] args) {
 		Gui g = new Gui();
+		
 	}
 }
