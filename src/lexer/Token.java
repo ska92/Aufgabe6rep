@@ -1,9 +1,29 @@
 package lexer;
 
-public abstract class Token {
-	private String regex;
-	private String token;
+import java.io.BufferedReader;
+
+public abstract class Token implements HtmlPrintable{
 	
-	public abstract boolean checkToken();
-	public abstract String getToken();
+	protected String token;
+	protected String regex;
+	
+	public Token(){
+		this.token = null;
+		this.regex = null;
+	}
+	
+	public Token(String token){
+		this.token = token;
+	}
+	
+	public abstract Token findToken(String s, BufferedReader br) throws NoTokenFoundException;
+	
+	
+	public String getToken(){ 
+		return this.token;
+	}
+	
+	public String getRegex(){
+		return this.regex;
+	}
 }
